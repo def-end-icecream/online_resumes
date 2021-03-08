@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
+    <h1>{{ $route.params.handle }}</h1>
+    <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/HamillHimself?ref_src=twsrc%5Etfw">
+      Tweets by HamillHimself
+    </a>
   </div>
 </template>
 
@@ -9,9 +12,7 @@
 <script>
 export default {
   data: function() {
-    return {
-      message: "Welcome to Vue.js!",
-    };
+    return {};
   },
   created: function() {},
   methods: {},
