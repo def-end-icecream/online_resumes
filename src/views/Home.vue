@@ -3,18 +3,20 @@
     <nav class="navbar navbar-dark bg-primary fixed-top">
       <span class="navbar-brand">Online Resumes</span>
     </nav>
-    <div v-for="user in users" :key="user.id">
-      <h3>{{ user.first_name }} {{ user.last_name }}</h3>
-      <img :src="user.image_url" alt="User's image" style="width:25%" />
-      <br />
-      <router-link :to="`/users/${user.id}`">
-        <button>More Info</button>
-      </router-link>
+    <div class="container">
+      <div v-for="user in users" :key="user.id">
+        <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+        <img :src="user.image_url" alt="User's image" style="width:25%" />
+        <br />
+        <router-link :to="`/users/${user.id}`">
+          <button>More Info</button>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style>
 body {
   padding: 0;
 }
