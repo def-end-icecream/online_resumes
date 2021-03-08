@@ -26,30 +26,44 @@
         </ul>
       </div>
     </nav>
+    <img :src="user.image_url" alt="User profile picture" />
     <h1>{{ user.first_name }} {{ user.last_name }}</h1>
-    <img :src="user.image_url" alt="User profile picture" style="width:25%" />
-    <p>
+    <h3>
       <a :href="`mailto:${user.email}`">{{ user.email }}</a>
       |
       <a :href="`tel:${user.phone_number}`">
         {{ user.phone_number }}
       </a>
-    </p>
-    <p>
-      <a :href="user.linkedin_url">LinkedIn</a>
-      |
-      <a :href="user.github">Github</a>
-      |
-      <a :href="user.website">Personal Website</a>
-      |
-      <a :href="user.resume_url">Resume</a>
-      |
-      <a :href="`https://twitter.com/${user.twitter}`">Twitter</a>
-    </p>
+    </h3>
+
+    <p>Bio bio bio</p>
+    <div class="social-icons">
+      <a :href="user.linkedin_url" class="social-icon"><i class="fab fa-linkedin"></i></a>
+
+      <a :href="user.github" class="social-icon"><i class="fab fa-github"></i></a>
+
+      <a :href="`https://twitter.com/${user.twitter}`" class="social-icon"><i class="fab fa-twitter"></i></a>
+    </div>
   </div>
 </template>
+//
+<a :href="user.website">Personal Website</a>
 
-<style></style>
+//
+<a :href="user.resume_url">Resume</a>
+
+<style scoped>
+img {
+  border-radius: 50%;
+  width: 150px;
+}
+div.home {
+  padding-top: 80px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+</style>
 
 <script>
 export default {
