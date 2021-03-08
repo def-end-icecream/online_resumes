@@ -58,7 +58,7 @@ img {
   width: 150px;
 }
 div.home {
-  padding-top: 50px;
+  padding-top: 80px;
   padding-right: 30px;
   padding-bottom: 50px;
   padding-left: 80px;
