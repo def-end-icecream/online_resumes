@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
+    <h1>Casee was here</h1>
     <HelloWorld msg="I am a Restivo this page is about me!!!" />
   </div>
 </template>
