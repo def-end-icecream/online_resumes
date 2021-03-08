@@ -4,12 +4,31 @@
       <span class="navbar-brand">Online Resumes</span>
     </nav>
     <div class="container">
-      <h1>Students</h1>
+      <h1 class="pt-4">Students</h1>
+      <form class="d-flex align-items-center my-3">
+        <label for="search" class="mr-3 sr-only">Search</label>
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          placeholder="First name, last name, job title..."
+        />
+        <button type="submit" class="btn btn-primary ml-3">
+          Search
+        </button>
+      </form>
       <div class="row row-cols-1 row-cols-md-3">
-        <div class="col mb-4" v-for="student in students" :key="student.id">
+        <div
+          class="col mb-4"
+          v-for="student in students"
+          :key="student.student_id"
+        >
           <div class="card">
             <router-link :to="`/users/${student.id}`" class="stretched-link">
-              <img :src="student.image_url" class="card-img-top" alt="..."
+              <img
+                :src="student.image_url"
+                class="card-img-top"
+                :alt="`${student.first_name} ${student.last_name}`"
             /></router-link>
             <div class="card-body">
               <h5 class="card-title">
