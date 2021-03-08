@@ -3,7 +3,10 @@
     <div v-for="user in users" :key="user.id">
       <h3>{{ user.first_name }} {{ user.last_name }}</h3>
       <img :src="user.image_url" alt="User's image" style="width:25%" />
-      <button>More Info</button>
+      <br />
+      <router-link :to="`/users/${user.id}`">
+        <button>More Info</button>
+      </router-link>
     </div>
   </div>
 </template>
