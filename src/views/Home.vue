@@ -12,6 +12,7 @@
           class="form-control"
           id="search"
           placeholder="First name, last name, job title..."
+          v-model="search"
         />
         <button type="submit" class="btn btn-primary ml-3">
           Search
@@ -20,8 +21,14 @@
       <div class="row row-cols-1 row-cols-md-3">
         <div
           class="col mb-4"
-          v-for="student in students"
-          :key="student.student_id"
+          v-for="student in filterBy(
+            students,
+            search,
+            'first_name',
+            'last_name',
+            'experience'
+          )"
+          :key="student.d"
         >
           <div class="card">
             <router-link :to="`/users/${student.id}`" class="stretched-link">
@@ -34,7 +41,9 @@
               <h5 class="card-title">
                 {{ student.first_name }} {{ student.last_name }}
               </h5>
-              <h6 class="card-subtitle text-muted">Job Title</h6>
+              <h6 v-if="student.experience" class="card-subtitle text-muted">
+                {{ student.experience[0].job_title }}
+              </h6>
             </div>
           </div>
         </div>
@@ -53,11 +62,15 @@ body {
 }
 </style>
 <script>
+import Vue2Filters from "vue2-filters";
+
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       students: [
         {
+          id: 1,
           last_name: "Amores",
           first_name: "Casee",
           email: "casee.amores@gmail.com",
@@ -78,11 +91,12 @@ export default {
               end_date: "2021-01-02",
               job_title: "Job",
               company_name: "company",
-              details: "work",
-            },
-          ],
+              details: "work"
+            }
+          ]
         },
         {
+          id: 2,
           last_name: "Calhoun",
           first_name: "David",
           email: "calhoun5321@gmail.com",
@@ -103,11 +117,12 @@ export default {
               end_date: "2021-01-04",
               job_title: "big time job",
               company_name: "super duper company",
-              details: "workin hard",
-            },
-          ],
+              details: "workin hard"
+            }
+          ]
         },
         {
+          id: 3,
           last_name: "Evans",
           first_name: "Mackenzie",
           email: "evans.mackenzie@gmail.com",
@@ -128,11 +143,12 @@ export default {
               end_date: "2021-01-06",
               job_title: "whatever",
               company_name: "ya know",
-              details: "ugh",
-            },
-          ],
+              details: "ugh"
+            }
+          ]
         },
         {
+          id: 4,
           last_name: "Genco-Kamin",
           first_name: "Nix",
           email: "ngencokamin@gmail.com",
@@ -145,12 +161,13 @@ export default {
           resume_url: "https://www.linkedin.com/in/ngencokamin/",
           github_url: "https://github.com/ngencokamin",
           image_url:
-            "https://media-exp1.licdn.com/dms/image/C4D03AQEU9bojr3QH2g/profile-displayphoto-shrink_200_200/0/1609352591726?e=1620864000&v=beta&t=xGKu-4qvU_D4MGTVvxERzZVCcb8KAH98VKcjqONhPHE",
-        },
+            "https://media-exp1.licdn.com/dms/image/C4D03AQEU9bojr3QH2g/profile-displayphoto-shrink_200_200/0/1609352591726?e=1620864000&v=beta&t=xGKu-4qvU_D4MGTVvxERzZVCcb8KAH98VKcjqONhPHE"
+        }
       ],
+      search: ""
     };
   },
   created: function() {},
-  methods: {},
+  methods: {}
 };
 </script>
