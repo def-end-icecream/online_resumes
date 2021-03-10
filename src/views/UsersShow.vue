@@ -47,7 +47,11 @@
     </nav>
     <section class="resume-section" id="about">
       <div class="resume-section-content">
-        <img :src="student.image_url" alt="User profile picture" />
+        <img
+          :src="student.image_url"
+          alt="User profile picture"
+          class="avatar"
+        />
         <h1>{{ student.first_name }} {{ student.last_name }}</h1>
         <h3>
           <a :href="`mailto:${student.email}`">{{ student.email }}</a>
@@ -195,6 +199,29 @@
       </div>
     </section>
 
+    <section class="resume-section" id="capstone">
+      <div class="resume-section-content">
+        <h2 class="mb-5">Capstone</h2>
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between mb-5"
+        >
+          <div class="flex-grow-1">
+            <h3>{{ student.capstone.name }}</h3>
+            <p>{{ student.capstone.description }}</p>
+            <a
+              class="btn btn-primary"
+              :href="student.capstone.url"
+              role="button"
+              >Github repository</a
+            >
+            <br />
+            <br />
+            <img :src="student.capstone.screenshot" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="resume-section" id="twitter">
       <div class="resume-section-content">
         <div id="tweetLoaded">
@@ -211,6 +238,9 @@
 
 <style scoped>
 img {
+  width: 500px;
+}
+img.avatar {
   border-radius: 50%;
   width: 150px;
 }
@@ -250,6 +280,14 @@ export default {
         updated_at: "2021-03-10T18:15:11.965Z",
         password_digest:
           "$2a$12$NwJQpp0LByxS/LyecD/CVeOlJ5ID63BmfU0EexL5/Jhi/0/qE8WXq",
+        capstone: {
+          name: "Cheesehub",
+          description:
+            "This is a website where you can talk about and share pictures of cheese",
+          url: "https://www.github.com",
+          screenshot:
+            "https://cdn.cnn.com/cnnnext/dam/assets/200623110902-cheddar-cubes-full-169.jpg"
+        },
         skills: [
           { id: 1, skill_name: "HTML" },
           { id: 2, skill_name: "Javascript" },
