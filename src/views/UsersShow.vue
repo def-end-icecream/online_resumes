@@ -63,54 +63,19 @@
     <section class="resume-section" id="experience">
       <div class="resume-section-content">
         <h2 class="mb-5">Experience</h2>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Senior Web Developer</h3>
-            <div class="subheading mb-3">Intelitec Solutions</div>
-            <p>
-              Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day,
-              going forward, a new normal that has evolved from generation X is on the runway heading towards a
-              streamlined cloud solution. User generated content in real-time will have multiple touchpoints for
-              offshoring.
-            </p>
+        <div v-for="experience in user.experiences" :key="experience.id">
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+              <h3 class="mb-0">{{ experience.job_title }}</h3>
+              <div class="subheading mb-3">{{ experience.company_name }}</div>
+              <p>
+                {{ experience.details }}
+              </p>
+            </div>
+            <div class="flex-shrink-0">
+              <span class="text-primary">{{ formatDate(experience.start_date) }} - Present</span>
+            </div>
           </div>
-          <div class="flex-shrink-0"><span class="text-primary">March 2013 - Present</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Web Developer</h3>
-            <div class="subheading mb-3">Intelitec Solutions</div>
-            <p>
-              Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the
-              digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information
-              highway will close the loop on focusing solely on the bottom line.
-            </p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">December 2011 - March 2013</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Junior Web Designer</h3>
-            <div class="subheading mb-3">Shout! Media Productions</div>
-            <p>
-              Podcasting operational change management inside of workflows to establish a framework. Taking seamless key
-              performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a
-              deep dive on the start-up mentality to derive convergence on cross-platform integration.
-            </p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">July 2010 - December 2011</span></div>
-        </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">Web Design Intern</h3>
-            <div class="subheading mb-3">Shout! Media Productions</div>
-            <p>
-              Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
-              users after installed base benefits. Dramatically visualize customer directed convergence without
-              revolutionary ROI.
-            </p>
-          </div>
-          <div class="flex-shrink-0"><span class="text-primary">September 2008 - June 2010</span></div>
         </div>
       </div>
     </section>
@@ -202,28 +167,64 @@ img {
 
 <script>
 import { Timeline } from "vue-tweet-embed";
+import moment from "moment";
 export default {
   data: function() {
     return {
       message: "Let's see if this worked!",
       user: {
-        id: 2,
-        first_name: "Dexter",
-        last_name: "Laboratory",
-        image_url: "https://i.pinimg.com/originals/b4/51/89/b45189a152246f123bef2032444c7473.jpg",
-        email: "dexter@laboratory.com",
-        phone_number: "345-232-5234",
-        bio: "My sister is the worst and I am very smart B)",
-        linkedin_url: "https://linkedin.com/dexterlab",
-        twitter: "twitterdev",
-        website: "https://dexlab.com",
-        resume_url: "https://resume.com/pdf",
-        github: "https://github.com/dexterlab",
+        id: 1,
+        last_name: "Amores",
+        first_name: "Casee",
+        email: "casee.amores@gmail.com",
+        phone_number: "111-1111",
+        short_bio:
+          "As an adept web developer with experience in a consulting environment, I understand that being a developer means being in a constant state of learning. I've fixed broken code that I inherited, deployed cloud servers for the first time by reading documentation, and learned Salesforce to support a client who used it. I am eager to dive further into backend development and overcome new challenges.",
+        linkedin_url: "linkedin.com/in/camores",
+        twitter_handle: "cassee twit",
+        personal_website_url: "n/a",
+        resume_url: "linkedin.com/in/camores",
+        github_url: "https://github.com/davidcalhoun4?tab=repositories",
+        image_url:
+          "https://media-exp1.licdn.com/dms/image/C4E03AQHUGZ-q868W9A/profile-displayphoto-shrink_200_200/0/1572832092439?e=1620864000&v=beta&t=ZpD5706ZRVpQqajyMK_d4Ca-DGytu3JHDbwSK7wOt8c",
+        experiences: [
+          {
+            id: 1,
+            student_id: 1,
+            start_date: "2021-01-01",
+            end_date: "2021-01-02",
+            job_title: "Job",
+            company_name: "company",
+            details: "work",
+          },
+          {
+            id: 2,
+            student_id: 1,
+            start_date: "2021-01-03",
+            end_date: "2021-01-04",
+            job_title: "big time job",
+            company_name: "super duper company",
+            details: "workin hard",
+          },
+          {
+            id: 3,
+            student_id: 1,
+            start_date: "2021-01-05",
+            end_date: "2021-01-06",
+            job_title: "whatever",
+            company_name: "ya know",
+            details: "ugh",
+          },
+        ],
       },
     };
   },
   created: function() {},
-  methods: {},
+  methods: {
+    formatDate: function(date) {
+      return moment(date).format("MMMM YYYY");
+    },
+  },
   components: {
     Timeline,
   },
