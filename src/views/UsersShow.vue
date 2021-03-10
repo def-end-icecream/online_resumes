@@ -44,6 +44,13 @@
 
       <a :href="`https://twitter.com/${user.twitter}`" class="social-icon"><i class="fab fa-twitter"></i></a>
     </div>
+    <section class="resume-section" id="twitter">
+      <div class="resume-section-content">
+        <div id="tweetLoaded">
+          <Timeline :id="user.twitter" sourceType="profile" :options="{ tweetLimit: '5' }" />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 //
@@ -66,6 +73,7 @@ div.home {
 </style>
 
 <script>
+import { Timeline } from "vue-tweet-embed";
 export default {
   data: function() {
     return {
@@ -79,7 +87,7 @@ export default {
         phone_number: "345-232-5234",
         bio: "My sister is the worst and I am very smart B)",
         linkedin_url: "https://linkedin.com/dexterlab",
-        twitter: "dexlab",
+        twitter: "twitterdev",
         website: "https://dexlab.com",
         resume_url: "https://resume.com/pdf",
         github: "https://github.com/dexterlab",
@@ -88,5 +96,8 @@ export default {
   },
   created: function() {},
   methods: {},
+  components: {
+    Timeline,
+  },
 };
 </script>
