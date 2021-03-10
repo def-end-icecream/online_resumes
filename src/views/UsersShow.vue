@@ -185,7 +185,7 @@
           <div class="flex-grow-1">
             <h3>{{ capstone.name }}</h3>
             <p>{{ capstone.description }}</p>
-            <a class="btn btn-primary" href="capstone.url" role="button">Github repository</a>
+            <a class="btn btn-primary" :href="capstone.url" role="button">Github repository</a>
             <br />
             <br />
             <img :src="capstone.screenshot" alt="" />
@@ -242,7 +242,7 @@ export default {
       capstone: {
         name: "Cheesehub",
         description: "This is a website where you can talk about and share pictures of cheese",
-        url: "www.github.com",
+        url: "https://www.github.com",
         screenshot: "https://cdn.cnn.com/cnnnext/dam/assets/200623110902-cheddar-cubes-full-169.jpg",
       },
     };
