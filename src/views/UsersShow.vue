@@ -47,7 +47,7 @@
     <section class="resume-section" id="twitter">
       <div class="resume-section-content">
         <div id="tweetLoaded">
-          <Timeline :id="user.twitter" sourceType="profile" :options="{ tweetLimit: '5' }" />
+          <Timeline :id="user.twitter" sourceType="profile" :options="{ tweetLimit: '3' }" />
         </div>
       </div>
     </section>
