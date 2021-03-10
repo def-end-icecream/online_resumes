@@ -148,7 +148,7 @@
     <section class="resume-section" id="twitter">
       <div class="resume-section-content">
         <div id="tweetLoaded">
-          <Timeline :id="user.twitter" sourceType="profile" :options="{ tweetLimit: '3' }" />
+          <Timeline :id="user.twitter_handle" sourceType="profile" :options="{ tweetLimit: '3' }" />
         </div>
       </div>
     </section>
@@ -185,7 +185,7 @@ export default {
         short_bio:
           "As an adept web developer with experience in a consulting environment, I understand that being a developer means being in a constant state of learning. I've fixed broken code that I inherited, deployed cloud servers for the first time by reading documentation, and learned Salesforce to support a client who used it. I am eager to dive further into backend development and overcome new challenges.",
         linkedin_url: "linkedin.com/in/camores",
-        twitter_handle: "cassee twit",
+        twitter_handle: "hamillhimself",
         personal_website_url: "n/a",
         resume_url: "linkedin.com/in/camores",
         github_url: "https://github.com/davidcalhoun4?tab=repositories",
