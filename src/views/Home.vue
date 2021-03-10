@@ -55,10 +55,15 @@
 <style>
 body {
   padding: 0;
-  background-color: #eaeaea;
 }
 .home {
+  background-color: #eaeaea;
   padding-top: 3.375rem;
+}
+@media (min-width: 992px) {
+  .users-show {
+    padding-left: 17rem;
+  }
 }
 </style>
 <script>
