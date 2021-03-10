@@ -40,7 +40,7 @@
     </nav>
     <section class="resume-section" id="about">
       <div class="resume-section-content">
-        <img :src="user.image_url" alt="User profile picture" />
+        <img :src="user.image_url" alt="User profile picture" class="avatar" />
         <h1>{{ user.first_name }} {{ user.last_name }}</h1>
         <h3>
           <a :href="`mailto:${user.email}`">{{ user.email }}</a>
@@ -178,6 +178,22 @@
       </div>
     </section>
 
+    <section class="resume-section" id="capstone">
+      <div class="resume-section-content">
+        <h2 class="mb-5">Capstone</h2>
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="flex-grow-1">
+            <h3>{{ capstone.name }}</h3>
+            <p>{{ capstone.description }}</p>
+            <a class="btn btn-primary" :href="capstone.url" role="button">Github repository</a>
+            <br />
+            <br />
+            <img :src="capstone.screenshot" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="resume-section" id="twitter">
       <div class="resume-section-content">
         <div id="tweetLoaded">
@@ -194,9 +210,12 @@
 <a :href="user.resume_url">Resume</a>
 
 <style scoped>
-img {
+img.avatar {
   border-radius: 50%;
   width: 150px;
+}
+img {
+  width: 500px;
 }
 </style>
 
@@ -219,6 +238,12 @@ export default {
         website: "https://dexlab.com",
         resume_url: "https://resume.com/pdf",
         github: "https://github.com/dexterlab",
+      },
+      capstone: {
+        name: "Cheesehub",
+        description: "This is a website where you can talk about and share pictures of cheese",
+        url: "https://www.github.com",
+        screenshot: "https://cdn.cnn.com/cnnnext/dam/assets/200623110902-cheddar-cubes-full-169.jpg",
       },
     };
   },
