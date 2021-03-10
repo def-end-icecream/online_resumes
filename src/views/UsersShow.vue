@@ -63,7 +63,7 @@
     <section class="resume-section" id="experience">
       <div class="resume-section-content">
         <h2 class="mb-5">Experience</h2>
-        <div v-for="experience in user.experiences" :key="experience.id">
+        <div v-for="experience in orderBy(user.experiences, 'end_date', -1)" :key="experience.id">
           <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
             <div class="flex-grow-1">
               <h3 class="mb-0">{{ experience.job_title }}</h3>
@@ -73,7 +73,9 @@
               </p>
             </div>
             <div class="flex-shrink-0">
-              <span class="text-primary">{{ formatDate(experience.start_date) }} - Present</span>
+              <span class="text-primary">
+                {{ formatDate(experience.start_date) }} - {{ formatDate(experience.end_date) }}
+              </span>
             </div>
           </div>
         </div>
@@ -168,7 +170,9 @@ img {
 <script>
 import { Timeline } from "vue-tweet-embed";
 import moment from "moment";
+import Vue2Filters from "vue2-filters";
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       message: "Let's see if this worked!",
@@ -192,7 +196,7 @@ export default {
             id: 1,
             student_id: 1,
             start_date: "2021-01-01",
-            end_date: "2021-01-02",
+            end_date: "2021-03-02",
             job_title: "Job",
             company_name: "company",
             details: "work",
@@ -200,8 +204,8 @@ export default {
           {
             id: 2,
             student_id: 1,
-            start_date: "2021-01-03",
-            end_date: "2021-01-04",
+            start_date: "2020-08-03",
+            end_date: "2020-12-04",
             job_title: "big time job",
             company_name: "super duper company",
             details: "workin hard",
@@ -209,11 +213,20 @@ export default {
           {
             id: 3,
             student_id: 1,
-            start_date: "2021-01-05",
-            end_date: "2021-01-06",
+            start_date: "2020-01-05",
+            end_date: "2020-04-12",
             job_title: "whatever",
             company_name: "ya know",
             details: "ugh",
+          },
+          {
+            id: 4,
+            student_id: 1,
+            start_date: "2020-07-05",
+            end_date: "2020-05-12",
+            job_title: "who's asking?",
+            company_name: "why do u wanna know, huh?",
+            details: "leave me alone",
           },
         ],
       },
