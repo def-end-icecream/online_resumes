@@ -21,12 +21,22 @@
       <div class="row row-cols-1 row-cols-md-3">
         <div
           class="col mb-4"
-          v-for="student in filterBy(students, search, 'first_name', 'last_name', 'experience')"
-          :key="student.d"
+          v-for="student in filterBy(
+            students,
+            search,
+            'first_name',
+            'last_name',
+            'experience'
+          )"
+          :key="student.id"
         >
           <div class="card">
-            <router-link :to="`/users/${student.id}`" class="stretched-link">
-              <img :src="student.image_url" class="card-img-top" :alt="`${student.first_name} ${student.last_name}`" />
+            <router-link :to="`/students/${student.id}`" class="stretched-link">
+              <img
+                :src="student.image_url"
+                class="card-img-top"
+                :alt="`${student.first_name} ${student.last_name}`"
+              />
             </router-link>
             <div class="card-body">
               <h5 class="card-title">{{ student.first_name }} {{ student.last_name }}</h5>
@@ -50,7 +60,7 @@ body {
   padding-top: 3.375rem;
 }
 @media (min-width: 992px) {
-  .users-show {
+  .students-show {
     padding-left: 17rem;
   }
 }
