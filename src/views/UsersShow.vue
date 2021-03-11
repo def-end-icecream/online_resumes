@@ -2,7 +2,7 @@
   <div class="users-show">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Clarence Taylor</span>
+        <span class="d-block d-lg-none">{{student.first_name}} {{student.last_name}}</span>
       </a>
       <button
         class="navbar-toggler"
@@ -88,28 +88,27 @@
     <section class="resume-section" id="education">
       <div class="resume-section-content">
         <h2 class="mb-5">Education</h2>
+         <div v-for="education in student.educations" v-bind:key="education.university_name">
         <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="flex-grow-1">
-            <h3 class="mb-0">University of Colorado Boulder</h3>
-            <div class="subheading mb-3">Bachelor of Science</div>
-            <div>Computer Science - Web Development Track</div>
-            <p>GPA: 3.23</p>
-          </div>
-          <div class="flex-shrink-0">
-            <span class="text-primary">August 2006 - May 2010</span>
-          </div>
+            
+            <h3 class="mb-0">{{education.university_name}}</h3>
+            
+            
+          <div class="subheading mb-3">{{education.degree}}</div>
+            
+            <div>{{education.details}}</div>
+            
+           
+          
+          <div class="flex-shrink-0"><span class="text-primary">{{education.start_date}} - {{education.end_date}}</span></div>
         </div>
-        <div class="d-flex flex-column flex-md-row justify-content-between">
-          <div class="flex-grow-1">
-            <h3 class="mb-0">James Buchanan High School</h3>
-            <div class="subheading mb-3">Technology Magnet Program</div>
-            <p>GPA: 3.56</p>
-          </div>
-          <div class="flex-shrink-0">
-            <span class="text-primary">August 2002 - May 2006</span>
-          </div>
         </div>
+        </div>
+        
+        
       </div>
+      
     </section>
 
     <section class="resume-section" id="skills">
@@ -245,6 +244,20 @@ export default {
           { id: 6, skill_name: "Git" },
           { id: 7, skill_name: "Github" },
         ],
+        educations:[{
+          start_date:"August 2006",
+          end_date:"May 2010",
+          degree:"Bachelor of Science",
+          university_name:"UNIVERSITY OF COLORADO BOULDER",
+          details:"Computer Science - Web Development Track GPA: 3.23"
+          },
+          {
+          start_date:"August 2002",
+          end_date:"May 2006",
+          degree:"TECHNOLOGY MAGNET PROGRAM",
+          university_name:"JAMES BUCHANAN HIGH SCHOOL",
+          details:"GPA: 3.56"
+          }]
       },
     };
   },
