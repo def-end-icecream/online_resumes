@@ -1,6 +1,9 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
+import axios from "axios";
+axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+axios.defaults.baseURL = process.env.NODE_ENV === "development" ? " https://immense-fortress-95120.herokuapp.com" : "/";
 
 Vue.config.productionTip = false;
 

@@ -168,6 +168,7 @@ img.avatar {
 </style>
 
 <script>
+
 import { Timeline } from "vue-tweet-embed";
 import moment from "moment";
 import Vue2Filters from "vue2-filters";
@@ -266,7 +267,9 @@ export default {
     formatDate: function(date) {
       return moment(date).format("MMMM YYYY");
     },
+    
   },
+  
   components: {
     Timeline,
   },
