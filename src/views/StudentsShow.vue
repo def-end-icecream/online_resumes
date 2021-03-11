@@ -1,5 +1,5 @@
 <template>
-  <div class="users-show" v-if="student">
+  <div class="students-show" v-if="student">
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
       id="sideNav"

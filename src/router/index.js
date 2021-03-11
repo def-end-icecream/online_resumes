@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import UsersShow from "../views/UsersShow.vue";
+import StudentsShow from "../views/StudentsShow.vue";
 
 Vue.use(VueRouter);
 
@@ -12,9 +12,9 @@ const routes = [
     component: Home
   },
   {
-    path: "/users/:id",
-    name: "users-show",
-    component: UsersShow
+    path: "/students/:id",
+    name: "students-show",
+    component: StudentsShow
   }
 ];
 
