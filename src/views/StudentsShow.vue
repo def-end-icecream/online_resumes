@@ -32,14 +32,10 @@
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#experience"
-              >Experience</a
-            >
+            <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#education"
-              >Education</a
-            >
+            <a class="nav-link js-scroll-trigger" href="#education">Education</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
@@ -105,13 +101,8 @@
     <section class="resume-section" id="experience">
       <div class="resume-section-content">
         <h2 class="mb-5">Experience</h2>
-        <div
-          v-for="experience in orderBy(student.experiences, 'end_date', -1)"
-          :key="experience.id"
-        >
-          <div
-            class="d-flex flex-column flex-md-row justify-content-between mb-5"
-          >
+        <div v-for="experience in orderBy(student.experiences, 'end_date', -1)" :key="experience.id">
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
             <div class="flex-grow-1">
               <h3 class="mb-0">{{ experience.job_title }}</h3>
               <div class="subheading mb-3">{{ experience.company_name }}</div>
@@ -133,13 +124,8 @@
     <section class="resume-section" id="education">
       <div class="resume-section-content">
         <h2 class="mb-5">Education</h2>
-        <div
-          v-for="education in orderBy(student.educations, 'end_date', -1)"
-          v-bind:key="education.id"
-        >
-          <div
-            class="d-flex flex-column flex-md-row justify-content-between mb-5"
-          >
+        <div v-for="education in orderBy(student.educations, 'end_date', -1)" v-bind:key="education.id">
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
             <div class="flex-grow-1">
               <h3 class="mb-0">{{ education.university_name }}</h3>
 
@@ -163,12 +149,8 @@
       <div class="resume-section-content">
         <h2 class="mb-5">Skills</h2>
         <ul class="mb-0 list-inline">
-          <li
-            class="list-inline-item mb-2"
-            v-for="skill in student.skills"
-            :key="skill.id"
-          >
-            <span class="btn btn-primary">{{ skill.skill_name }}</span>
+          <li class="list-inline-item mb-2" v-for="skill in student.skills" :key="skill.id">
+            <span class="btn btn-primary">{{ skill.name }}</span>
           </li>
         </ul>
       </div>
@@ -177,18 +159,11 @@
     <section class="resume-section" id="capstone">
       <div class="resume-section-content">
         <h2 class="mb-5">Capstone</h2>
-        <div
-          class="d-flex flex-column flex-md-row justify-content-between mb-5"
-        >
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="flex-grow-1">
             <h3>{{ student.capstones.name }}</h3>
             <p>{{ student.capstones.description }}</p>
-            <a
-              class="btn btn-primary"
-              :href="student.capstones.url"
-              role="button"
-              >Github repository</a
-            >
+            <a class="btn btn-primary" :href="student.capstones.url" role="button">Github repository</a>
             <br />
             <br />
             <img :src="student.capstones.screenshot" alt="" />
@@ -200,11 +175,7 @@
     <section class="resume-section" id="twitter">
       <div class="resume-section-content">
         <div id="tweetLoaded">
-          <Timeline
-            :id="student.twitter_handle"
-            sourceType="profile"
-            :options="{ tweetLimit: '3' }"
-          />
+          <Timeline :id="student.twitter_handle" sourceType="profile" :options="{ tweetLimit: '3' }" />
         </div>
       </div>
     </section>
@@ -235,7 +206,7 @@ export default {
     return {
       message: "Let's see if this worked!",
       student: "",
-      errors: []
+      errors: [],
     };
   },
   created: function() {
@@ -247,10 +218,10 @@ export default {
   methods: {
     formatDate: function(date) {
       return moment(date).format("MMMM YYYY");
-    }
+    },
   },
   components: {
-    Timeline
-  }
+    Timeline,
+  },
 };
 </script>
