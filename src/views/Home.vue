@@ -26,7 +26,7 @@
             search,
             'first_name',
             'last_name',
-            'experience'
+            'experiences'
           )"
           :key="student.id"
         >
@@ -39,8 +39,13 @@
               />
             </router-link>
             <div class="card-body">
-              <h5 class="card-title">{{ student.first_name }} {{ student.last_name }}</h5>
-              <h6 v-if="student.experiences[0]" class="card-subtitle text-muted">
+              <h5 class="card-title"
+                >{{ student.first_name }} {{ student.last_name }}</h5
+              >
+              <h6
+                v-if="student.experiences[0]"
+                class="card-subtitle text-muted"
+              >
                 {{ student.experiences[0].job_title }}
               </h6>
             </div>
@@ -67,22 +72,22 @@ body {
 </style>
 <script>
 import Vue2Filters from "vue2-filters";
-import axios from "axios"
+import axios from "axios";
 export default {
   mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       students: "",
-      search: "",
+      search: ""
     };
   },
   created: function() {
-    axios.get("/api/students").then(response =>{
-    console.log("student index", response);
-    this.students = response.data;
-      });
+    axios.get("/api/students").then(response => {
+      console.log("student index", response);
+      this.students = response.data;
+    });
   },
-  
-  methods: {},
+
+  methods: {}
 };
 </script>
