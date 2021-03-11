@@ -54,27 +54,35 @@
           alt="User profile picture"
           class="avatar"
         />
-        <h1>{{ student.first_name }} {{ student.last_name }}</h1>
-        <h3>
+        <h1
+          >{{ student.first_name }}
+          <span class="text-primary">{{ student.last_name }}</span></h1
+        >
+        <div class="subheading mb-5">
+          {{ student.phone_number }} ·
           <a :href="`mailto:${student.email}`">{{ student.email }}</a>
-          |
-          <a :href="`tel:${student.phone_number}`">
-            {{ student.phone_number }}
-          </a>
-        </h3>
+        </div>
 
-        <p>Bio bio bio</p>
+        <p class="lead mb-5">{{ student.short_bio }}</p>
         <div class="social-icons">
-          <a :href="student.linkedin_url" class="social-icon"
+          <a :href="student.linkedin_url" target="_blank" class="social-icon"
             ><i class="fab fa-linkedin"></i
           ></a>
 
-          <a :href="student.github" class="social-icon"
+          <a :href="student.github_url" target="_blank" class="social-icon"
             ><i class="fab fa-github"></i
           ></a>
 
           <a
+            :href="student.personal_website_url"
+            target="_blank"
+            class="social-icon"
+            ><i class="fas fa-globe-americas"></i
+          ></a>
+
+          <a
             :href="`https://twitter.com/${student.twitter_handle}`"
+            target="_blank"
             class="social-icon"
           >
             <i class="fab fa-twitter"></i>
