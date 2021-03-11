@@ -1,9 +1,13 @@
 <template>
-  <div class="users-show" v-if="student">
+  <div class="students-show" v-if="student">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">{{ student.first_name }} {{ student.last_name }}</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" :src="student.image_url" alt="" />
+        </span>
       </a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -40,7 +44,6 @@
     </nav>
     <section class="resume-section" id="about">
       <div class="resume-section-content">
-        <img :src="student.image_url" alt="User profile picture" class="avatar" />
         <h1>
           {{ student.first_name }}
           <span class="text-primary">{{ student.last_name }}</span>
@@ -52,15 +55,29 @@
 
         <p class="lead mb-5">{{ student.short_bio }}</p>
         <div class="social-icons">
-          <a :href="student.linkedin_url" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a v-if="student.linkedin_url" :href="student.linkedin_url" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+          </a>
 
-          <a :href="student.github_url" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+          <a v-if="student.github_url" :href="student.github_url" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+          </a>
 
-          <a :href="student.personal_website_url" target="_blank" class="social-icon">
+          <a
+            v-if="student.personal_website_url"
+            :href="student.personal_website_url"
+            target="_blank"
+            class="social-icon"
+          >
             <i class="fas fa-globe-americas"></i>
           </a>
 
-          <a :href="`https://twitter.com/${student.twitter_handle}`" target="_blank" class="social-icon">
+          <a
+            v-if="student.twitter_handle"
+            :href="`https://twitter.com/${student.twitter_handle}`"
+            target="_blank"
+            class="social-icon"
+          >
             <i class="fab fa-twitter"></i>
           </a>
         </div>
@@ -119,7 +136,7 @@
         <h2 class="mb-5">Skills</h2>
         <ul class="mb-0 list-inline">
           <li class="list-inline-item mb-2" v-for="skill in student.skills" :key="skill.id">
-            <span class="btn btn-primary">{{ skill.skill_name }}</span>
+            <span class="btn btn-primary">{{ skill.name }}</span>
           </li>
         </ul>
       </div>
@@ -154,13 +171,6 @@
 </template>
 
 <style scoped>
-img {
-  width: 500px;
-}
-img.avatar {
-  border-radius: 50%;
-  width: 150px;
-}
 #skills .btn-primary:hover {
   background-color: #bd5d38;
   border-color: #bd5d38;
