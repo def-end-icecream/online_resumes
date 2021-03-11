@@ -1,13 +1,8 @@
 <template>
   <div class="users-show" v-if="student">
-    <nav
-      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
-      id="sideNav"
-    >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none"
-          >{{ student.first_name }} {{ student.last_name }}</span
-        >
+        <span class="d-block d-lg-none">{{ student.first_name }} {{ student.last_name }}</span>
       </a>
       <button
         class="navbar-toggler"
@@ -26,14 +21,10 @@
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#experience"
-              >Experience</a
-            >
+            <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#education"
-              >Education</a
-            >
+            <a class="nav-link js-scroll-trigger" href="#education">Education</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
@@ -49,15 +40,11 @@
     </nav>
     <section class="resume-section" id="about">
       <div class="resume-section-content">
-        <img
-          :src="student.image_url"
-          alt="User profile picture"
-          class="avatar"
-        />
-        <h1
-          >{{ student.first_name }}
-          <span class="text-primary">{{ student.last_name }}</span></h1
-        >
+        <img :src="student.image_url" alt="User profile picture" class="avatar" />
+        <h1>
+          {{ student.first_name }}
+          <span class="text-primary">{{ student.last_name }}</span>
+        </h1>
         <div class="subheading mb-5">
           {{ student.phone_number }} ·
           <a :href="`mailto:${student.email}`">{{ student.email }}</a>
@@ -65,26 +52,15 @@
 
         <p class="lead mb-5">{{ student.short_bio }}</p>
         <div class="social-icons">
-          <a :href="student.linkedin_url" target="_blank" class="social-icon"
-            ><i class="fab fa-linkedin"></i
-          ></a>
+          <a :href="student.linkedin_url" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
 
-          <a :href="student.github_url" target="_blank" class="social-icon"
-            ><i class="fab fa-github"></i
-          ></a>
+          <a :href="student.github_url" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
 
-          <a
-            :href="student.personal_website_url"
-            target="_blank"
-            class="social-icon"
-            ><i class="fas fa-globe-americas"></i
-          ></a>
+          <a :href="student.personal_website_url" target="_blank" class="social-icon">
+            <i class="fas fa-globe-americas"></i>
+          </a>
 
-          <a
-            :href="`https://twitter.com/${student.twitter_handle}`"
-            target="_blank"
-            class="social-icon"
-          >
+          <a :href="`https://twitter.com/${student.twitter_handle}`" target="_blank" class="social-icon">
             <i class="fab fa-twitter"></i>
           </a>
         </div>
@@ -94,13 +70,8 @@
     <section class="resume-section" id="experience">
       <div class="resume-section-content">
         <h2 class="mb-5">Experience</h2>
-        <div
-          v-for="experience in orderBy(student.experiences, 'end_date', -1)"
-          :key="experience.id"
-        >
-          <div
-            class="d-flex flex-column flex-md-row justify-content-between mb-5"
-          >
+        <div v-for="experience in orderBy(student.experiences, 'end_date', -1)" :key="experience.id">
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
             <div class="flex-grow-1">
               <h3 class="mb-0">{{ experience.job_title }}</h3>
               <div class="subheading mb-3">{{ experience.company_name }}</div>
@@ -122,13 +93,8 @@
     <section class="resume-section" id="education">
       <div class="resume-section-content">
         <h2 class="mb-5">Education</h2>
-        <div
-          v-for="education in orderBy(student.educations, 'end_date', -1)"
-          v-bind:key="education.id"
-        >
-          <div
-            class="d-flex flex-column flex-md-row justify-content-between mb-5"
-          >
+        <div v-for="education in orderBy(student.educations, 'end_date', -1)" v-bind:key="education.id">
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
             <div class="flex-grow-1">
               <h3 class="mb-0">{{ education.university_name }}</h3>
 
@@ -152,11 +118,7 @@
       <div class="resume-section-content">
         <h2 class="mb-5">Skills</h2>
         <ul class="mb-0 list-inline">
-          <li
-            class="list-inline-item mb-2"
-            v-for="skill in student.skills"
-            :key="skill.id"
-          >
+          <li class="list-inline-item mb-2" v-for="skill in student.skills" :key="skill.id">
             <span class="btn btn-primary">{{ skill.skill_name }}</span>
           </li>
         </ul>
@@ -166,21 +128,16 @@
     <section class="resume-section" id="capstone">
       <div class="resume-section-content">
         <h2 class="mb-5">Capstone</h2>
-        <div
-          class="d-flex flex-column flex-md-row justify-content-between mb-5"
-        >
-          <div class="flex-grow-1">
-            <h3>{{ student.capstones.name }}</h3>
-            <p>{{ student.capstones.description }}</p>
-            <a
-              class="btn btn-primary"
-              :href="student.capstones.url"
-              role="button"
-              >Github repository</a
-            >
-            <br />
-            <br />
-            <img :src="student.capstones.screenshot" alt="" />
+        <div v-for="capstone in student.capstones" :key="capstone.id">
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+              <h3>{{ capstone.name }}</h3>
+              <p>{{ capstone.description }}</p>
+              <a class="btn btn-primary" :href="capstone.url" role="button">Github repository</a>
+              <br />
+              <br />
+              <img id="capstone-image" :src="capstone.screenshot" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -189,11 +146,7 @@
     <section class="resume-section" id="twitter">
       <div class="resume-section-content">
         <div id="tweetLoaded">
-          <Timeline
-            :id="student.twitter_handle"
-            sourceType="profile"
-            :options="{ tweetLimit: '3' }"
-          />
+          <Timeline :id="student.twitter_handle" sourceType="profile" :options="{ tweetLimit: '3' }" />
         </div>
       </div>
     </section>
@@ -217,6 +170,11 @@ img.avatar {
   background-color: #6c757d;
   border-color: #6c757d;
 }
+#capstone-image {
+  width: 50%;
+  padding-top: 5px;
+  border: 1px solid #bd5d38;
+}
 </style>
 
 <script>
@@ -231,7 +189,7 @@ export default {
     return {
       message: "Let's see if this worked!",
       student: "",
-      errors: []
+      errors: [],
     };
   },
   created: function() {
@@ -243,10 +201,10 @@ export default {
   methods: {
     formatDate: function(date) {
       return moment(date).format("MMMM YYYY");
-    }
+    },
   },
   components: {
-    Timeline
-  }
+    Timeline,
+  },
 };
 </script>
