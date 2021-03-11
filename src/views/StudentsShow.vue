@@ -1,9 +1,20 @@
 <template>
-  <div class="users-show" v-if="student">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+  <div class="students-show" v-if="student">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+      id="sideNav"
+    >
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">{{ student.first_name }} {{ student.last_name }}</span>
+        <span class="d-block d-lg-none"
+          >{{ student.first_name }} {{ student.last_name }}</span
+        ><span class="d-none d-lg-block"
+          ><img
+            class="img-fluid img-profile rounded-circle mx-auto mb-2"
+            :src="student.image_url"
+            alt=""
+        /></span>
       </a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -40,11 +51,10 @@
     </nav>
     <section class="resume-section" id="about">
       <div class="resume-section-content">
-        <img :src="student.image_url" alt="User profile picture" class="avatar" />
-        <h1>
-          {{ student.first_name }}
-          <span class="text-primary">{{ student.last_name }}</span>
-        </h1>
+        <h1
+          >{{ student.first_name }}
+          <span class="text-primary">{{ student.last_name }}</span></h1
+        >
         <div class="subheading mb-5">
           {{ student.phone_number }} ·
           <a :href="`mailto:${student.email}`">{{ student.email }}</a>
@@ -52,15 +62,36 @@
 
         <p class="lead mb-5">{{ student.short_bio }}</p>
         <div class="social-icons">
-          <a :href="student.linkedin_url" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a
+            v-if="student.linkedin_url"
+            :href="student.linkedin_url"
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-linkedin"></i
+          ></a>
 
-          <a :href="student.github_url" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+          <a
+            v-if="student.github_url"
+            :href="student.github_url"
+            target="_blank"
+            class="social-icon"
+            ><i class="fab fa-github"></i
+          ></a>
 
-          <a :href="student.personal_website_url" target="_blank" class="social-icon">
-            <i class="fas fa-globe-americas"></i>
-          </a>
+          <a
+            v-if="student.personal_website_url"
+            :href="student.personal_website_url"
+            target="_blank"
+            class="social-icon"
+            ><i class="fas fa-globe-americas"></i
+          ></a>
 
-          <a :href="`https://twitter.com/${student.twitter_handle}`" target="_blank" class="social-icon">
+          <a
+            v-if="student.twitter_handle"
+            :href="`https://twitter.com/${student.twitter_handle}`"
+            target="_blank"
+            class="social-icon"
+          >
             <i class="fab fa-twitter"></i>
           </a>
         </div>
@@ -152,13 +183,6 @@
 </template>
 
 <style scoped>
-img {
-  width: 500px;
-}
-img.avatar {
-  border-radius: 50%;
-  width: 150px;
-}
 #skills .btn-primary:hover {
   background-color: #bd5d38;
   border-color: #bd5d38;

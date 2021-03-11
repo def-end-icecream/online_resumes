@@ -21,15 +21,27 @@
       <div class="row row-cols-1 row-cols-md-3">
         <div
           class="col mb-4"
-          v-for="student in filterBy(students, search, 'first_name', 'last_name', 'experience')"
+          v-for="student in filterBy(
+            students,
+            search,
+            'first_name',
+            'last_name',
+            'experience'
+          )"
           :key="student.d"
         >
           <div class="card">
-            <router-link :to="`/users/${student.id}`" class="stretched-link">
-              <img :src="student.image_url" class="card-img-top" :alt="`${student.first_name} ${student.last_name}`" />
+            <router-link :to="`/students/${student.id}`" class="stretched-link">
+              <img
+                :src="student.image_url"
+                class="card-img-top"
+                :alt="`${student.first_name} ${student.last_name}`"
+              />
             </router-link>
             <div class="card-body">
-              <h5 class="card-title">{{ student.first_name }} {{ student.last_name }}</h5>
+              <h5 class="card-title"
+                >{{ student.first_name }} {{ student.last_name }}</h5
+              >
               <h6 v-if="student.experience" class="card-subtitle text-muted">
                 {{ student.experience[0].job_title }}
               </h6>
@@ -50,7 +62,7 @@ body {
   padding-top: 3.375rem;
 }
 @media (min-width: 992px) {
-  .users-show {
+  .students-show {
     padding-left: 17rem;
   }
 }
@@ -85,9 +97,9 @@ export default {
               end_date: "2021-01-02",
               job_title: "Job",
               company_name: "company",
-              details: "work",
-            },
-          ],
+              details: "work"
+            }
+          ]
         },
         {
           id: 2,
@@ -95,7 +107,8 @@ export default {
           first_name: "David",
           email: "calhoun5321@gmail.com",
           phone_number: "222-2222",
-          short_bio: "Budding full stack web developer with a passion for the arts and health.",
+          short_bio:
+            "Budding full stack web developer with a passion for the arts and health.",
           linkedin_url: "linkedin.com/in/davidcalhoun4",
           twitter_handle: "david twit",
           personal_website_url: "davidcalhoun4.github.io",
@@ -110,9 +123,9 @@ export default {
               end_date: "2021-01-04",
               job_title: "big time job",
               company_name: "super duper company",
-              details: "workin hard",
-            },
-          ],
+              details: "workin hard"
+            }
+          ]
         },
         {
           id: 3,
@@ -120,7 +133,8 @@ export default {
           first_name: "Mackenzie",
           email: "evans.mackenzie@gmail.com",
           phone_number: "333-3333",
-          short_bio: "Full stack web developer with a past life in labor and delivery/women's health nursing.",
+          short_bio:
+            "Full stack web developer with a past life in labor and delivery/women's health nursing.",
           linkedin_url: "https://www.linkedin.com/in/mackenzieevans1/",
           twitter_handle: "mackenzie twit",
           personal_website_url: "n/a",
@@ -135,9 +149,9 @@ export default {
               end_date: "2021-01-06",
               job_title: "whatever",
               company_name: "ya know",
-              details: "ugh",
-            },
-          ],
+              details: "ugh"
+            }
+          ]
         },
         {
           id: 4,
@@ -145,20 +159,21 @@ export default {
           first_name: "Nix",
           email: "ngencokamin@gmail.com",
           phone_number: "444-4444",
-          short_bio: "Passionate full-stack web developer with an eye for detail",
+          short_bio:
+            "Passionate full-stack web developer with an eye for detail",
           linkedin_url: "https://www.linkedin.com/in/ngencokamin/",
           twitter_handle: "nix twit",
           personal_website_url: "ngencokamin.github.io",
           resume_url: "https://www.linkedin.com/in/ngencokamin/",
           github_url: "https://github.com/ngencokamin",
           image_url:
-            "https://media-exp1.licdn.com/dms/image/C4D03AQEU9bojr3QH2g/profile-displayphoto-shrink_200_200/0/1609352591726?e=1620864000&v=beta&t=xGKu-4qvU_D4MGTVvxERzZVCcb8KAH98VKcjqONhPHE",
-        },
+            "https://media-exp1.licdn.com/dms/image/C4D03AQEU9bojr3QH2g/profile-displayphoto-shrink_200_200/0/1609352591726?e=1620864000&v=beta&t=xGKu-4qvU_D4MGTVvxERzZVCcb8KAH98VKcjqONhPHE"
+        }
       ],
-      search: "",
+      search: ""
     };
   },
   created: function() {},
-  methods: {},
+  methods: {}
 };
 </script>
